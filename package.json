@@ -1,0 +1,25 @@
+{
+  "name": "scalingnodejs",
+  "version": "1.0.0",
+  "description": "\"# Scaling-Node-Application\"",
+  "main": "app.js",
+  "scripts": {
+    "start": "pm2 start app.js -i -1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ambaqinejad/Scaling-Node-Application.git"
+  },
+  "author": "Amir Hosein Baqinejad (ambaqinejad)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ambaqinejad/Scaling-Node-Application/issues"
+  },
+  "homepage": "https://github.com/ambaqinejad/Scaling-Node-Application#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.13",
+    "node-localstorage": "^2.2.1"
+  }
+}
