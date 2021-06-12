@@ -1,23 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const cache = require("memory-cache");
+const bodyParser = require('body-parser');
 
-const User = require("./models/user");
+const userRouter = require("./routes/user");
 
 const app = express();
-const memCache = new cache.Cache();
-
-app.get("/", (req, res, next) => {
-  User.findById("60c0994c4090255798976ba6")
-    .then((user) => {
-      res.send(user);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use("/user", userRouter);
 
 mongoose
   .connect("'mongodb://localhost:27017/node-scaling", {
@@ -27,7 +17,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    const PORT = process.env.PORT || 3001;
+    const PORT = process.env.PORT || 3000;
     console.log("Server connected to mongodb.");
 
     app.listen(PORT, () => {
